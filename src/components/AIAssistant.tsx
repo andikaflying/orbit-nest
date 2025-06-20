@@ -1,0 +1,119 @@
+import React, { useState } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Send,
+  HelpCircle,
+  FileText,
+} from "lucide-react";
+import { Button } from "./ui/button";
+
+const AIAssistant: React.FC = () => {
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  const sampleQueries = [
+    "Which molecular feature most correlates with the binders to the protein Caspase-7 with lower fup?",
+    "Find the best-ranked molecules for protein Caspase-7 via virtual screening",
+    "How accurate is the QSPR model in predicting binding?",
+    "Give the molecules keep molecular weight (MW) remains below 500 while maintaining lower fup",
+    "Which molecular features correlate most with permeability for Caspase-7?",
+  ];
+
+  return (
+    <>
+      {/* Toggle Button */}
+      {/* <Button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="fixed top-3 right-3 z-50 w-12 h-12 bg-kumi-gray-50 hover:bg-gray-100 rounded-xl border border-kumi-gray-100"
+        variant="ghost"
+      >
+        {isExpanded ? (
+          <ChevronRight className="w-4 h-4 text-kumi-black" />
+        ) : (
+          <ChevronLeft className="w-4 h-4 text-kumi-black" />
+        )}
+      </Button> */}
+
+      {/* AI Assistant Panel */}
+      <div
+        className={`
+          relative flex top-0 right-0 m-3 rounded-3xl  bg-white border-l border-kumi-gray-100 transition-all duration-300 z-40
+          ${isExpanded ? "w-[460px]" : "w-0 overflow-hidden"}
+        `}
+      >
+        <div className="p-6 h-full flex flex-col">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col">
+              <h2 className="font-poppins text-xl font-semibold text-kumi-black">
+                KumiChem AI assistant
+              </h2>
+              <span className="font-konkhmer text-xs text-kumi-black">TM</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="ghost"
+                className="w-12 h-12 bg-kumi-gray-50 rounded-2xl"
+              >
+                <HelpCircle className="w-6 h-6 text-kumi-gray-300" />
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-12 h-12 bg-kumi-gray-50 rounded-2xl"
+              >
+                <FileText className="w-6 h-6 text-kumi-black" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Chat Area */}
+          <div className="flex-1 bg-kumi-gray-50 rounded-[20px] p-6 mb-4 flex flex-col">
+            {/* Empty State */}
+            <div className="flex-1 flex flex-col items-center justify-center text-center">
+              <p className="text-kumi-gray-300 font-red-hat text-base mb-2">
+                There are no messages yet.
+              </p>
+              <p className="text-kumi-gray-300 font-red-hat text-base mb-8 max-w-[387px]">
+                To start the interaction, you can write your question or use
+                ready-made ones
+              </p>
+
+              {/* Sample Queries */}
+              <div className="w-full">
+                <p className="text-kumi-black font-red-hat text-base font-medium mb-4">
+                  Explore our sample queries!
+                </p>
+                <div className="space-y-2">
+                  {sampleQueries.map((query, index) => (
+                    <button
+                      key={index}
+                      className="w-full p-3 text-left bg-white border border-kumi-blue-100 rounded-xl hover:bg-blue-50 transition-colors"
+                    >
+                      <span className="text-kumi-black font-red-hat text-sm">
+                        {query}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Input Area */}
+          <div className="flex items-center gap-2 bg-kumi-gray-50 rounded-2xl p-3">
+            <input
+              type="text"
+              placeholder="Describe your task here..."
+              className="flex-1 bg-transparent text-kumi-gray-300 font-red-hat text-base placeholder:text-kumi-gray-300 outline-none"
+            />
+            <Button className="w-6 h-6 bg-kumi-blue-400 hover:bg-kumi-blue-500 rounded p-0">
+              <Send className="w-4 h-4 text-white" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default AIAssistant;

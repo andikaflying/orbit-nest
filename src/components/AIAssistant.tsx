@@ -7,6 +7,7 @@ import {
   FileText,
 } from "lucide-react";
 import { Button } from "./ui/button";
+import SendArrowIcon from "../assets/send_arrow.svg";
 
 const AIAssistant: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(true);
@@ -20,35 +21,52 @@ const AIAssistant: React.FC = () => {
   ];
 
   return (
-    <>
-      {/* Toggle Button */}
-      {/* <Button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="fixed top-3 right-3 z-50 w-12 h-12 bg-kumi-gray-50 hover:bg-gray-100 rounded-xl border border-kumi-gray-100"
-        variant="ghost"
-      >
-        {isExpanded ? (
-          <ChevronRight className="w-4 h-4 text-kumi-black" />
-        ) : (
-          <ChevronLeft className="w-4 h-4 text-kumi-black" />
-        )}
-      </Button> */}
-
-      {/* AI Assistant Panel */}
-      <div
-        className={`
-          relative flex top-0 right-0 m-3 rounded-3xl  bg-white border-l border-kumi-gray-100 transition-all duration-300 z-40
-          ${isExpanded ? "w-[460px]" : "w-0 overflow-hidden"}
+    <div
+      className={`
+          relative hidden sm:flex top-0 right-0 m-3 rounded-3xl bg-white border-l border-kumi-gray-100 transition-all duration-300 z-40
+          ${isExpanded ? "w-full max-w-[460px]" : "w-[72px] overflow-hidden"}
         `}
-      >
-        <div className="p-6 h-full flex flex-col">
+    >
+      {!isExpanded && (
+        <div className="flex flex-col mx-auto">
+          <Button
+            variant="ghost"
+            className="w-12 h-12 bg-kumi-gray-50 rounded-2xl mt-3"
+            onClick={() => setIsExpanded(true)}
+          >
+            <ChevronLeft className="w-4 h-4 text-kumi-black" />
+          </Button>
+          <h2
+            className="font-poppins mx-auto mt-6 text-xl font-semibold text-kumi-black"
+            style={{ writingMode: "sideways-lr", textOrientation: "mixed" }}
+          >
+            KumiChem
+            <sup className="font-konkhmer text-xs text-kumi-black mt-2 left-[-6px]">
+              TM
+            </sup>{" "}
+            AI assistant
+          </h2>
+        </div>
+      )}
+      {isExpanded && (
+        <div className="p-2 h-full flex flex-col w-full">
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex flex-col">
-              <h2 className="font-poppins text-xl font-semibold text-kumi-black">
-                KumiChem AI assistant
+          <div className="flex items-center justify-between mb-2">
+            <Button
+              variant="ghost"
+              className="w-12 h-12 bg-kumi-gray-50 rounded-2xl"
+              onClick={() => setIsExpanded(false)}
+            >
+              <ChevronRight className="w-4 h-4 text-kumi-black" />
+            </Button>
+            <div className="flex flex-row">
+              <h2 className="font-poppins text-sm lg:text-xl font-semibold text-kumi-black">
+                KumiChem
+                <sup className="font-konkhmer text-xs text-kumi-black ml-0.5">
+                  TM
+                </sup>{" "}
+                AI assistant
               </h2>
-              <span className="font-konkhmer text-xs text-kumi-black">TM</span>
             </div>
             <div className="flex items-center gap-2">
               <Button
@@ -67,29 +85,31 @@ const AIAssistant: React.FC = () => {
           </div>
 
           {/* Chat Area */}
-          <div className="flex-1 bg-kumi-gray-50 rounded-[20px] p-6 mb-4 flex flex-col">
+          <div className="flex-1 relative bg-kumi-gray-50 rounded-[20px] p-3 mb-4 flex flex-col">
             {/* Empty State */}
-            <div className="flex-1 flex flex-col items-center justify-center text-center">
-              <p className="text-kumi-gray-300 font-red-hat text-base mb-2">
-                There are no messages yet.
-              </p>
-              <p className="text-kumi-gray-300 font-red-hat text-base mb-8 max-w-[387px]">
-                To start the interaction, you can write your question or use
-                ready-made ones
-              </p>
+            <div className="flex-1 flex flex-col items-center text-center">
+              <div className="mt-[200px]">
+                <p className="text-kumi-gray-300 font-red-hat text-xs lg:text-base mb-2">
+                  There are no messages yet.
+                </p>
+                <p className="text-kumi-gray-300 font-red-hat text-xs lg:text-base mb-8 max-w-[387px]">
+                  To start the interaction, you can write your question or use
+                  ready-made ones
+                </p>
+              </div>
 
               {/* Sample Queries */}
-              <div className="w-full">
-                <p className="text-kumi-black font-red-hat text-base font-medium mb-4">
+              <div className="w-full absolute bottom-0 p-3">
+                <p className="text-kumi-black font-red-hat text-xs lg:text-base font-medium mb-4">
                   Explore our sample queries!
                 </p>
                 <div className="space-y-2">
                   {sampleQueries.map((query, index) => (
                     <button
                       key={index}
-                      className="w-full p-3 text-left bg-white border border-kumi-blue-100 rounded-xl hover:bg-blue-50 transition-colors"
+                      className="w-full p-1 lg:p-3 text-left bg-white border border-kumi-blue-100 rounded-xl hover:bg-blue-50 transition-colors"
                     >
-                      <span className="text-kumi-black font-red-hat text-sm">
+                      <span className="text-kumi-black font-red-hat text-xs lg:text-sm">
                         {query}
                       </span>
                     </button>
@@ -104,15 +124,15 @@ const AIAssistant: React.FC = () => {
             <input
               type="text"
               placeholder="Describe your task here..."
-              className="flex-1 bg-transparent text-kumi-gray-300 font-red-hat text-base placeholder:text-kumi-gray-300 outline-none"
+              className="flex-1 bg-transparent text-kumi-gray-300 font-red-hat text-xs lg:text-base placeholder:text-kumi-gray-300 outline-none"
             />
-            <Button className="w-6 h-6 bg-kumi-blue-400 hover:bg-kumi-blue-500 rounded p-0">
-              <Send className="w-4 h-4 text-white" />
+            <Button className="w-6 h-6 bg-transparent hover:bg-kumi-blue-500 rounded p-0">
+              <img src={SendArrowIcon} alt="Send" className="w-6 h-6" />
             </Button>
           </div>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 

@@ -56,11 +56,9 @@ const ProjectsDashboard: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-[1424px] bg-white rounded-3xl m-3 p-6">
-      {/* Header Section */}
-      <div className="flex justify-between items-center mb-6">
-        {/* Left Navigation */}
-        <div className="flex items-center gap-2">
+    <div className="max-w-[1424px] w-full h-screen bg-white rounded-3xl m-3 p-3">
+      <div className="flex justify-between items-center">
+        <div className="flex flex-col md:flex-row md:items-center gap-2">
           <div className="bg-kumi-gray-100 rounded-2xl p-1.5">
             <div className="flex items-center gap-1">
               <Button
@@ -78,19 +76,16 @@ const ProjectsDashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Create New Project Button */}
           <Button
             onClick={() => navigate("/workflow")}
-            className="bg-kumi-blue-400 hover:bg-kumi-blue-500 text-white font-red-hat text-sm font-semibold px-8 py-4 h-12 rounded-2xl flex items-center gap-3"
+            className="bg-kumi-blue-400 hover:bg-kumi-blue-500 w-auto lg:w-[378px] text-white font-red-hat text-sm font-semibold px-8 py-4 h-12 rounded-2xl flex items-center gap-3"
           >
             Create a new project
             <Plus className="w-4 h-4" />
           </Button>
         </div>
 
-        {/* Right Controls */}
-        <div className="flex items-center gap-2">
-          {/* Sort By */}
+        <div className="hidden 2xl:flex items-center gap-2">
           <div className="bg-kumi-gray-100 rounded-2xl px-5 py-1.5">
             <div className="flex items-center gap-3">
               <span className="text-kumi-black font-red-hat text-sm font-medium">
@@ -105,7 +100,6 @@ const ProjectsDashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Tags Filter */}
           <div className="bg-kumi-gray-100 rounded-2xl px-5 py-1.5">
             <div className="flex items-center gap-3">
               <span className="text-kumi-black font-red-hat text-sm font-medium">
@@ -122,19 +116,19 @@ const ProjectsDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Description */}
-      <div className="mb-8 flex items-center gap-3">
-        <h2 className="font-konkhmer text-xl text-kumi-black">
-          EZSAI (Easy Start AI):
-        </h2>
-        <p className="font-red-hat text-xl text-kumi-black">
-          AI agent assisted workflows tailored for artificial intelligence for
-          science (AI4S) drug discovery studies
-        </p>
+      <div className="pt-6 pb-3">
+        <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+          <h2 className="font-konkhmer text-sm lg:text-xl text-kumi-black font-semibold">
+            EZSAI (Easy Start AI):
+          </h2>
+          <p className="font-red-hat text-sm lg:text-xl text-kumi-black">
+            AI agent assisted workflows tailored for artificial intelligence for
+            science (AI4S) drug discovery studies
+          </p>
+        </div>
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 justify-items-center">
         {mockProjects.map((project, index) => (
           <ProjectCard
             key={index}

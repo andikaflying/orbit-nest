@@ -1,5 +1,11 @@
 import React from "react";
-import { Search, HelpCircle, ChevronDown } from "lucide-react";
+import {
+  Search,
+  HelpCircle,
+  ChevronDown,
+  Navigation2Icon,
+  Menu,
+} from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -12,7 +18,6 @@ const Header: React.FC = () => {
 
   return (
     <header className="w-full bg-white px-6 py-3 flex justify-between items-center gap-4 border-b border-kumi-gray-100">
-      {/* Logo Section */}
       <div className="flex items-center flex-shrink-0">
         <div className="flex flex-row">
           <h1 className="font-konkhmer text-[34px] leading-none text-kumi-black font-semibold">
@@ -24,8 +29,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Navigation and Search (Center) */}
-      <div className="flex-1 hidden lg:flex justify-center min-w-0 px-4">
+      <div className="hidden 2xl:flex flex-1 justify-center px-4">
         <div className="flex items-center gap-4 bg-kumi-gray-100 rounded-[20px] px-4 py-2 w-full max-w-5xl">
           <nav className="flex items-center gap-1">
             <Button
@@ -82,14 +86,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Right side controls */}
-      <div className="flex items-center gap-2 flex-shrink-0">
-        <div className="lg:hidden bg-kumi-gray-100 rounded-[20px] p-2">
-          <div className="bg-white rounded-xl p-3">
-            <Search className="w-6 h-6 text-kumi-gray-300" />
-          </div>
-        </div>
-
+      <div className="hidden 2xl:flex items-center gap-2 flex-shrink-0">
         <div className="bg-kumi-gray-100 rounded-[20px] p-2">
           <div className="bg-white rounded-xl p-3">
             <HelpCircle className="w-6 h-6 text-kumi-black" />
@@ -107,6 +104,13 @@ const Header: React.FC = () => {
           </span>
           <div className="bg-white rounded-xl p-3">
             <ChevronDown className="w-4 h-4 text-kumi-black" />
+          </div>
+        </div>
+      </div>
+      <div className="2xl:hidden flex items-center gap-2 flex-shrink-0">
+        <div className="bg-kumi-gray-100 rounded-[20px] p-2">
+          <div className="bg-white rounded-xl p-3">
+            <Menu className="w-6 h-6 text-kumi-gray-300" />
           </div>
         </div>
       </div>

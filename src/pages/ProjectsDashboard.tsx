@@ -10,54 +10,6 @@ const ProjectsDashboard: React.FC = () => {
   const [userHistory, setUserHistory] = useState<UserHistoryItem[]>([]);
   const navigate = useNavigate();
   const [userProjects, setUserProjects] = useState<ProjectItem[]>([]);
-  const mockProjects = [
-    {
-      title: "My projects",
-      lastEdited: "Edited 2 minutes ago",
-      tags: [{ name: "Data preparation", color: "yellow" as const }],
-      isActive: true,
-    },
-    {
-      title: "My projects",
-      lastEdited: "Edited 2 minutes ago",
-      tags: [{ name: "Data", color: "green" as const }],
-    },
-    {
-      title: "My projects",
-      lastEdited: "Edited 2 minutes ago",
-      tags: [
-        { name: "Preprocessing", color: "orange" as const },
-        { name: "Data", color: "green" as const },
-      ],
-    },
-    {
-      title: "My projects",
-      lastEdited: "Edited 2 minutes ago",
-      tags: [
-        { name: "Preprocessing", color: "orange" as const },
-        { name: "Data", color: "green" as const },
-        { name: "Data preparation", color: "yellow" as const },
-      ],
-    },
-    {
-      title: "My projects",
-      lastEdited: "Edited 2 minutes ago",
-      tags: [{ name: "Data preparation", color: "yellow" as const }],
-    },
-    {
-      title: "My projects",
-      lastEdited: "Edited 2 minutes ago",
-      tags: [{ name: "Data", color: "green" as const }],
-    },
-    {
-      title: "My projects",
-      lastEdited: "Edited 2 minutes ago",
-      tags: [
-        { name: "Preprocessing", color: "orange" as const },
-        { name: "Data", color: "green" as const },
-      ],
-    },
-  ];
 
   const fetchProjectData = async () => {
     fetch("/assets/get_user_history_workflow_result1.json")

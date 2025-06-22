@@ -18,11 +18,13 @@ import { SpecificWorkflowItem } from "@/types/SpecificWorkflowResponse";
 import WorkflowNode from "@/components/WorkflowNode";
 import { cn } from "@/lib/utils";
 import "reactflow/dist/style.css";
+import { useNavigate } from "react-router-dom";
 
 const WorkflowVisualization: React.FC = () => {
   const [workflowData, setWorkflowData] = useState<SpecificWorkflowItem>(null);
   const [proteinData, setProteinData] = useState<ProteinData>(null);
   const [hideMain, setHideMain] = useState(false);
+  const navigate = useNavigate();
 
   const fetchWorkflowData = async () => {
     fetch("/assets/get_specific_workflow_result1.json")
@@ -214,25 +216,20 @@ const WorkflowVisualization: React.FC = () => {
                   </div>
                 </div>
                 {/* Protein Structure Visualization */}
-                <div className="mt-6 bg-kumi-gray-100 rounded-3xl rounded-3xl">
+                <div className="mt-6 bg-kumi-gray-100 rounded-3xl rounded-3xl p-4">
                   <h3 className="font-red-hat text-xl font-bold text-kumi-black mb-4 ml-2 mt-3">
                     Beta-2 Adrenergic Receptor (P07550)
                   </h3>
-                  {/* <PDBView
-                    url="https://files.rcsb.org/download/6C4G.pdb"
-                    atomIncrement={0}
-                    width="60vw"
-                    height="60vh"
-                    atomSize={200}
-                    cameraDistance={100}
-                    autoRotate={false}
-                    elementColors={{
-                      C: [1.0, 0, 1.0],
-                      Ni: [0.5, 0.5, 0],
-                      default: [1.0, 1.0, 1.0],
+                  <div
+                    className="bg-white rounded-[20px] p-4 space-y-3"
+                    onClick={() => {
+                      navigate("/protein");
                     }}
-                  /> */}
-                  `
+                  >
+                    <span className="font-red-hat text-base font-bold text-kumi-black cursor-pointer">
+                      Click here to see PDB Visualization
+                    </span>
+                  </div>
                 </div>
               </div>
 

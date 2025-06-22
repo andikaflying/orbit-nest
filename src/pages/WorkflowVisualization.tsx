@@ -25,7 +25,7 @@ const WorkflowVisualization: React.FC = () => {
   const [hideMain, setHideMain] = useState(false);
 
   const fetchWorkflowData = async () => {
-    fetch("/src/assets/get_specific_workflow_result1.json")
+    fetch("/assets/get_specific_workflow_result1.json")
       .then((res) => res.json())
       .then((data) => {
         const item = data.body?.item?.[0];
@@ -38,7 +38,7 @@ const WorkflowVisualization: React.FC = () => {
   };
 
   const fetchProteinData = async () => {
-    fetch("/src/assets/get_specific_dataset_info_result.json")
+    fetch("/assets/get_specific_dataset_info_result.json")
       .then((res) => res.json())
       .then((data) => {
         const item: ProteinData = data.body?.item?.[0];

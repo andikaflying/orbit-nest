@@ -60,7 +60,7 @@ const ProjectsDashboard: React.FC = () => {
   ];
 
   const fetchProjectData = async () => {
-    fetch("/src/assets/get_user_history_workflow_result1.json")
+    fetch("/assets/get_user_history_workflow_result1.json")
       .then((res) => res.json())
       .then((data) => {
         const item: UserHistoryItem[] = data.body?.item;

@@ -5,6 +5,7 @@ import AIAssistant from "./components/AIAssistant";
 import ProjectsDashboard from "./pages/ProjectsDashboard";
 import WorkflowVisualization from "./pages/WorkflowVisualization";
 import NotFound from "./pages/NotFound";
+import Workflow2 from "./pages/Workflow2";
 
 function App() {
   return (

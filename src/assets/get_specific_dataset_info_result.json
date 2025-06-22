@@ -1,0 +1,411 @@
+{
+    "statusCode": 200,
+    "body": {
+        "item": [
+            {
+                "_id": "P06746",
+                "PDBID": "1BNO",
+                "UniProtKBID": "P06746",
+                "druggabilityFactor": [
+                    "DNA repair enzyme: Plays a key role in the base excision repair pathway, important for cancer and neurodegenerative disease therapies.",
+                    "Clear active site: Suitable for small-molecule inhibitors that can interfere with DNA synthesis.",
+                    "Therapeutic relevance: Targeted to exploit synthetic lethality in cancer treatments."
+                ],
+                "druggabilityScore": "moderate",
+                "function": "DNA polymerase beta is involved in base excision repair, playing a critical role in DNA repair.",
+                "modulator": [
+                    {
+                        "compound": "APR-246",
+                        "type": "Restorer of function",
+                        "potency": "IC50: 10 \u00b5M",
+                        "clinicalStage": "Phase III"
+                    },
+                    {
+                        "compound": "Nutlin-3",
+                        "type": "Inhibitor of MDM2",
+                        "potency": "IC50: 90 nM",
+                        "clinicalStage": "Phase I/II"
+                    }
+                ],
+                "proteinName": "DNA Polymerase Beta (UniProtKB ID: P06746)",
+                "data_size": 232643,
+                "distribution": {
+                    "mw": {
+                        "key": "MW",
+                        "min_val": 274.0,
+                        "max_val": 469.0,
+                        "hist": [
+                            17725,
+                            22632,
+                            27036,
+                            28032,
+                            29262,
+                            28448,
+                            25398,
+                            23172,
+                            18485,
+                            12453
+                        ],
+                        "bin_edges": [
+                            274.0,
+                            294.0,
+                            313.0,
+                            333.0,
+                            352.0,
+                            371.0,
+                            391.0,
+                            410.0,
+                            430.0,
+                            449.0,
+                            469.0
+                        ]
+                    },
+                    "logp": {
+                        "key": "LogP",
+                        "min_val": -2.58,
+                        "max_val": 7.75,
+                        "hist": [
+                            59,
+                            416,
+                            2913,
+                            15232,
+                            49612,
+                            81410,
+                            59596,
+                            20159,
+                            3117,
+                            129
+                        ],
+                        "bin_edges": [
+                            -2.58,
+                            -1.55,
+                            -0.517,
+                            0.517,
+                            1.55,
+                            2.58,
+                            3.62,
+                            4.65,
+                            5.68,
+                            6.72,
+                            7.75
+                        ]
+                    },
+                    "tpsa": {
+                        "key": "Topological Polar Surface Area (TPSA)",
+                        "min_val": 0,
+                        "max_val": 190.0,
+                        "hist": [
+                            1230,
+                            12613,
+                            45139,
+                            74028,
+                            59376,
+                            28452,
+                            8922,
+                            2336,
+                            496,
+                            51
+                        ],
+                        "bin_edges": [
+                            0,
+                            19.0,
+                            38.0,
+                            57.0,
+                            76.1,
+                            95.1,
+                            114.0,
+                            133.0,
+                            152.0,
+                            171.0,
+                            190.0
+                        ]
+                    },
+                    "complexity": {
+                        "key": "complexity",
+                        "min_val": 18.0,
+                        "max_val": 465.0,
+                        "hist": [
+                            12944,
+                            41112,
+                            93236,
+                            29833,
+                            44886,
+                            4712,
+                            5381,
+                            244,
+                            287,
+                            8
+                        ],
+                        "bin_edges": [
+                            18.0,
+                            62.8,
+                            107.0,
+                            152.0,
+                            197.0,
+                            242.0,
+                            286.0,
+                            331.0,
+                            376.0,
+                            420.0,
+                            465.0
+                        ]
+                    },
+                    "num_aromatic_rings": {
+                        "key": "Num Aromatic Rings (nAB)",
+                        "min_val": 0,
+                        "max_val": 6,
+                        "hist": [
+                            1640,
+                            28088,
+                            94354,
+                            81921,
+                            24608,
+                            2000,
+                            32
+                        ],
+                        "bin_edges": [
+                            0,
+                            1.0,
+                            2.0,
+                            3.0,
+                            4.0,
+                            5.0,
+                            6.0,
+                            7.0
+                        ]
+                    },
+                    "max_ring_size": {
+                        "key": "Max Ring Size",
+                        "min_val": 0,
+                        "max_val": 18,
+                        "hist": [
+                            12,
+                            0,
+                            0,
+                            0,
+                            0,
+                            2258,
+                            223719,
+                            6189,
+                            373,
+                            5,
+                            1,
+                            2,
+                            45,
+                            3,
+                            9,
+                            20,
+                            0,
+                            0,
+                            7
+                        ],
+                        "bin_edges": [
+                            0,
+                            1.0,
+                            2.0,
+                            3.0,
+                            4.0,
+                            5.0,
+                            6.0,
+                            7.0,
+                            8.0,
+                            9.0,
+                            10.0,
+                            11.0,
+                            12.0,
+                            13.0,
+                            14.0,
+                            15.0,
+                            16.0,
+                            17.0,
+                            18.0,
+                            19.0
+                        ]
+                    },
+                    "h_donors": {
+                        "key": "H-Bond Donors (HBD)",
+                        "min_val": 0,
+                        "max_val": 6,
+                        "hist": [
+                            51811,
+                            118642,
+                            52352,
+                            8859,
+                            872,
+                            86,
+                            21
+                        ],
+                        "bin_edges": [
+                            0,
+                            1.0,
+                            2.0,
+                            3.0,
+                            4.0,
+                            5.0,
+                            6.0,
+                            7.0
+                        ]
+                    },
+                    "h_acceptors": {
+                        "key": "H-Bond Acceptors (HBA)",
+                        "min_val": 0,
+                        "max_val": 14,
+                        "hist": [
+                            19,
+                            1288,
+                            10752,
+                            32271,
+                            52801,
+                            55809,
+                            42316,
+                            22754,
+                            9974,
+                            3287,
+                            991,
+                            332,
+                            44,
+                            3,
+                            2
+                        ],
+                        "bin_edges": [
+                            0,
+                            1.0,
+                            2.0,
+                            3.0,
+                            4.0,
+                            5.0,
+                            6.0,
+                            7.0,
+                            8.0,
+                            9.0,
+                            10.0,
+                            11.0,
+                            12.0,
+                            13.0,
+                            14.0,
+                            15.0
+                        ]
+                    },
+                    "rot_bonds": {
+                        "key": "Num Rotatable Bonds (nRB)",
+                        "min_val": 0,
+                        "max_val": 16,
+                        "hist": [
+                            270,
+                            2984,
+                            13409,
+                            31473,
+                            45764,
+                            47424,
+                            39262,
+                            26828,
+                            14956,
+                            6547,
+                            2491,
+                            862,
+                            271,
+                            70,
+                            25,
+                            4,
+                            3
+                        ],
+                        "bin_edges": [
+                            0,
+                            1.0,
+                            2.0,
+                            3.0,
+                            4.0,
+                            5.0,
+                            6.0,
+                            7.0,
+                            8.0,
+                            9.0,
+                            10.0,
+                            11.0,
+                            12.0,
+                            13.0,
+                            14.0,
+                            15.0,
+                            16.0,
+                            17.0
+                        ]
+                    },
+                    "heavy_atom_count": {
+                        "key": "heavy_atom_count",
+                        "min_val": 19,
+                        "max_val": 33,
+                        "hist": [
+                            5844,
+                            10638,
+                            16953,
+                            18656,
+                            19950,
+                            20877,
+                            21033,
+                            20855,
+                            20242,
+                            19119,
+                            16965,
+                            14908,
+                            12278,
+                            9082,
+                            5243
+                        ],
+                        "bin_edges": [
+                            19.0,
+                            20.0,
+                            21.0,
+                            22.0,
+                            23.0,
+                            24.0,
+                            25.0,
+                            26.0,
+                            27.0,
+                            28.0,
+                            29.0,
+                            30.0,
+                            31.0,
+                            32.0,
+                            33.0,
+                            34.0
+                        ]
+                    },
+                    "Solvation_Energy": {
+                        "key": "Solvation_Energy",
+                        "min_val": -3.03,
+                        "max_val": 0.47,
+                        "hist": [
+                            55,
+                            1373,
+                            20105,
+                            56699,
+                            98503,
+                            42427,
+                            10408,
+                            2573,
+                            312,
+                            188
+                        ],
+                        "bin_edges": [
+                            -3.03,
+                            -2.68,
+                            -2.33,
+                            -1.98,
+                            -1.63,
+                            -1.28,
+                            -0.93,
+                            -0.58,
+                            -0.23,
+                            0.12,
+                            0.47
+                        ]
+                    }
+                }
+            }
+        ],
+        "data_size": 1
+    },
+    "headers": {
+        "Content-Type": "application/json"
+    }
+}

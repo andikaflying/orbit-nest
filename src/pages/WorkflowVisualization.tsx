@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   ArrowLeft,
   Bookmark,
@@ -12,41 +12,92 @@ import {
   Share2,
 } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { ProteinData } from "@/types/ProteinData";
+import ReactFlow, { Background, Controls } from "reactflow";
+import { SpecificWorkflowItem } from "@/types/SpecificWorkflowResponse";
+import WorkflowNode from "@/components/WorkflowNode";
+import { cn } from "@/lib/utils";
+import "reactflow/dist/style.css";
 
 const WorkflowVisualization: React.FC = () => {
-  const modulatorData = [
-    {
-      compound: "Albuterol",
-      type: "Agonist",
-      potency: "EC50: 50 nM",
-      clinicalStage: "Approved",
-    },
-    {
-      compound: "Albuterol",
-      type: "Agonist",
-      potency: "EC50: 50 nM",
-      clinicalStage: "Approved",
-    },
-    {
-      compound: "Albuterol",
-      type: "Agonist",
-      potency: "EC50: 50 nM",
-      clinicalStage: "Approved",
-    },
-    {
-      compound: "Albuterol",
-      type: "Agonist",
-      potency: "EC50: 50 nM",
-      clinicalStage: "Approved",
-    },
-  ];
+  const [workflowData, setWorkflowData] = useState<SpecificWorkflowItem>(null);
+  const [proteinData, setProteinData] = useState<ProteinData>(null);
+  const [hideMain, setHideMain] = useState(false);
+
+  const fetchWorkflowData = async () => {
+    fetch("/src/assets/get_specific_workflow_result1.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const item = data.body?.item?.[0];
+        console.log("Workflow Data fetched: ", data);
+        setWorkflowData(item);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch dataset info:", err);
+      });
+  };
+
+  const fetchProteinData = async () => {
+    fetch("/src/assets/get_specific_dataset_info_result.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const item: ProteinData = data.body?.item?.[0];
+        console.log("Protein Data fetched: ", data);
+        setProteinData(item);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch dataset info:", err);
+      });
+  };
+
+  const workflowObj = workflowData ? workflowData.workflow : null;
+
+  const nodes = useMemo(() => {
+    return (
+      workflowObj &&
+      Object.entries(workflowObj).map(([id, node]) => ({
+        id,
+        type: "workflowNode",
+        position: node.position,
+        data: {
+          display_name: node.display_name,
+          module_type: node.module_type,
+        },
+      }))
+    );
+  }, [workflowObj]);
+
+  const edges =
+    workflowObj &&
+    Object.entries(workflowObj)
+      .filter(([_, node]) => node.nextNode)
+      .map(([id, node]) => ({
+        id: `${id}-${node.nextNode}`,
+        source: id,
+        target: node.nextNode,
+        type: "smoothstep",
+      }));
+
+  const nodeTypes = {
+    workflowNode: WorkflowNode,
+  };
+
+  useEffect(() => {
+    fetchWorkflowData();
+    fetchProteinData();
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#F1F1F5]">
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col xl:flex-row">
         {/* Left Sidebar - Workflow Map */}
-        <div className="w-full lg:w-[460px] bg-white m-3 rounded-3xl p-6">
-          <div className="flex items-center justify-between mb-2">
+        <div
+          className={cn(
+            "w-full bg-white m-3 rounded-3xl p-6 flex items-center flex-col",
+            hideMain ? "lg:w-[1300px]" : "xl:w-[460px]",
+          )}
+        >
+          <div className="flex items-center justify-between mb-2 w-full">
             <div className="flex flex-row">
               <Button
                 variant="ghost"
@@ -75,26 +126,35 @@ const WorkflowVisualization: React.FC = () => {
               <Button
                 variant="ghost"
                 className="w-12 h-12 bg-kumi-gray-50 rounded-2xl"
+                onClick={() => {
+                  setHideMain(!hideMain);
+                }}
               >
                 <Maximize className="w-6 h-6 text-kumi-black" />
               </Button>
             </div>
           </div>
-
-          {/* Workflow Controls */}
-          <div className="space-y-4">
-            <div className="bg-kumi-gray-50 rounded-3xl p-4">
-              <div className="w-12 h-12 bg-white rounded-xl p-3 mb-4">
-                <ChevronLeft className="w-6 h-6 text-kumi-black transform -rotate-90" />
-              </div>
-            </div>
+          <div
+            className={cn(
+              "bg-kumi-gray-100 rounded-3xl h-[80vh]",
+              hideMain ? "w-[50vw]" : "w-[420px]",
+            )}
+          >
+            <ReactFlow
+              nodes={nodes || []}
+              edges={edges || []}
+              nodeTypes={nodeTypes || {}}
+              fitView
+            >
+              <Background />
+              <Controls />
+            </ReactFlow>
           </div>
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-1 m-3 mr-6">
+        <div className={cn("flex-1 m-3 mr-6", hideMain ? "hidden" : "flex")}>
           <div className="bg-white rounded-3xl p-6 h-full">
-            {/* Module Header */}
             <div className="flex items-center gap-3 mb-6">
               <h2 className="font-red-hat text-xl font-bold text-kumi-black">
                 Module:
@@ -104,9 +164,7 @@ const WorkflowVisualization: React.FC = () => {
               </h2>
             </div>
 
-            {/* Target Protein Selection */}
-
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 2xl:grid-cols-2 gap-6">
               {/* Target Protein Information */}
               <div>
                 <div className="bg-kumi-gray-100 rounded-3xl p-2 mb-6">
@@ -116,7 +174,7 @@ const WorkflowVisualization: React.FC = () => {
                     </span>
                     <div className="bg-white rounded-[20px] px-4 py-4 flex items-center justify-between w-[432px]">
                       <span className="font-red-hat text-base text-kumi-black">
-                        Beta-2 Adrenergic Receptor (P07550)
+                        {proteinData?.proteinName}
                       </span>
                       <ChevronDown className="w-4 h-4 text-kumi-black" />
                     </div>
@@ -132,7 +190,7 @@ const WorkflowVisualization: React.FC = () => {
                         PDB ID:{" "}
                       </span>
                       <span className="font-red-hat text-base text-kumi-black">
-                        2R4R
+                        {proteinData?.PDBID}
                       </span>
                     </div>
                     <hr className="border-dashed border-kumi-gray-200" />
@@ -141,7 +199,7 @@ const WorkflowVisualization: React.FC = () => {
                         UniProtKB ID:{" "}
                       </span>
                       <span className="font-red-hat text-base text-kumi-black">
-                        P07550
+                        {proteinData?.UniProtKBID}
                       </span>
                     </div>
                     <hr className="border-dashed border-kumi-gray-200" />
@@ -150,10 +208,7 @@ const WorkflowVisualization: React.FC = () => {
                         Function:
                       </span>
                       <span className="font-red-hat text-base text-kumi-black">
-                        {" "}
-                        The beta-2 adrenergic receptor mediates the
-                        catecholamine-induced activation of adenylate cyclase
-                        through the action of G proteins.
+                        {proteinData?.function}
                       </span>
                     </div>
                   </div>
@@ -163,20 +218,35 @@ const WorkflowVisualization: React.FC = () => {
                   <h3 className="font-red-hat text-xl font-bold text-kumi-black mb-4 ml-2 mt-3">
                     Beta-2 Adrenergic Receptor (P07550)
                   </h3>
+                  {/* <PDBView
+                    url="https://files.rcsb.org/download/6C4G.pdb"
+                    atomIncrement={0}
+                    width="60vw"
+                    height="60vh"
+                    atomSize={200}
+                    cameraDistance={100}
+                    autoRotate={false}
+                    elementColors={{
+                      C: [1.0, 0, 1.0],
+                      Ni: [0.5, 0.5, 0],
+                      default: [1.0, 1.0, 1.0],
+                    }}
+                  /> */}
+                  `
                 </div>
               </div>
 
               {/* Druggability and Known Modulators */}
               <div className="space-y-6">
                 {/* Druggability */}
-                <div className="bg-kumi-gray-100 rounded-3xl p-5">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-red-hat text-xl font-bold text-kumi-black">
+                <div className="bg-kumi-gray-100 rounded-3xl p-5 w-full">
+                  <div className="flex items-center justify-between mb-4 flex-col 2xl:flex-row">
+                    <h3 className="font-red-hat text-md 2xl:text-lg font-bold text-kumi-black">
                       Druggability
                     </h3>
                     <div className="bg-kumi-orange text-white px-8 py-2 rounded-full">
-                      <span className="font-red-hat text-xl">
-                        score: moderate-low
+                      <span className="font-red-hat text-md 2xl:text-lg">
+                        score: {proteinData?.druggabilityScore}
                       </span>
                     </div>
                   </div>
@@ -186,35 +256,20 @@ const WorkflowVisualization: React.FC = () => {
                     </h4>
                     <hr className="border-dashed border-kumi-gray-200 mb-3" />
                     <div className="space-y-3 text-sm">
-                      <p className="font-red-hat text-base text-kumi-black">
-                        The beta-2 adrenergic receptor mediates the
-                        catecholamine-induced activation of adenylate cyclase
-                        through the action of G proteins.
-                      </p>
-                      <hr className="border-dashed border-kumi-gray-200" />
-                      <p>
-                        <span className="font-bold">GPCR class:</span> Belongs
-                        to the well-established class of G-protein-coupled
-                        receptors (GPCRs), which are popular drug targets due to
-                        their involvement in many physiological processes.
-                      </p>
-                      <hr className="border-dashed border-kumi-gray-200" />
-                      <p>
-                        <span className="font-bold">
-                          Active site accessibility:
-                        </span>{" "}
-                        The structure of the Beta-2 adrenergic receptor is
-                        well-studied, with multiple binding pockets for agonists
-                        and antagonists.
-                      </p>
-                      <hr className="border-dashed border-kumi-gray-200" />
-                      <p>
-                        <span className="font-bold">
-                          Broad therapeutic implications:
-                        </span>{" "}
-                        Targeted for conditions like asthma, COPD, and
-                        cardiovascular diseases
-                      </p>
+                      {proteinData?.druggabilityFactor.map((factor, index) => (
+                        <>
+                          <p
+                            key={`key-factor-${index}`}
+                            className="font-red-hat text-base text-kumi-black"
+                          >
+                            {factor}
+                          </p>
+                          {index <
+                            proteinData.druggabilityFactor.length - 1 && (
+                            <hr className="border-dashed border-kumi-gray-200" />
+                          )}
+                        </>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -241,7 +296,7 @@ const WorkflowVisualization: React.FC = () => {
                       </div>
                     </div>
                     {/* Table Rows */}
-                    {modulatorData.map((row, index) => (
+                    {proteinData?.modulator?.map((row, index) => (
                       <div
                         key={index}
                         className="grid grid-cols-4 border-t border-kumi-gray-100"

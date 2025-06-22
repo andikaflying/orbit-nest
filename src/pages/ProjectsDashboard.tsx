@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Plus, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import ProjectCard from "../components/ProjectCard";
+import { UserHistoryItem } from "@/types/UserHistoryWorkflowResponse";
+import { ProjectItem } from "@/types/ProjectItem";
 
 const ProjectsDashboard: React.FC = () => {
+  const [userHistory, setUserHistory] = useState<UserHistoryItem[]>([]);
   const navigate = useNavigate();
+  const [userProjects, setUserProjects] = useState<ProjectItem[]>([]);
   const mockProjects = [
     {
       title: "My projects",
@@ -54,6 +58,40 @@ const ProjectsDashboard: React.FC = () => {
       ],
     },
   ];
+
+  const fetchProjectData = async () => {
+    fetch("/src/assets/get_user_history_workflow_result1.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const item: UserHistoryItem[] = data.body?.item;
+        console.log("Protein Data fetched: ", data);
+        setUserHistory(item);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch project info:", err);
+      });
+  };
+
+  useEffect(() => {
+    if (userHistory.length > 0) {
+      console.log("User History:", userHistory);
+      const projects: ProjectItem[] = userHistory.map((item) => ({
+        title: item.display_workflow_name,
+        lastEdited: new Date(item.lastUpdated).toLocaleString(),
+        tags: item.module_tag.map((tag) => ({
+          name: tag,
+          color: "yellow",
+        })),
+        isActive: item.like,
+      }));
+
+      setUserProjects(projects);
+    }
+  }, [userHistory]);
+
+  useEffect(() => {
+    fetchProjectData();
+  }, []);
 
   return (
     <div className="max-w-[1424px] w-full h-screen bg-white rounded-3xl m-3 p-3">
@@ -128,17 +166,19 @@ const ProjectsDashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 justify-items-center">
-        {mockProjects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            title={project.title}
-            lastEdited={project.lastEdited}
-            tags={project.tags}
-            isActive={project.isActive}
-          />
-        ))}
-      </div>
+      {userProjects.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 justify-items-center">
+          {userProjects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              lastEdited={project.lastEdited}
+              tags={project.tags}
+              isActive={project.isActive}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,347 @@
+{
+    "statusCode": 200,
+    "body": {
+        "item": [
+            {
+                "_id": "user_id_8006807164098711_workflow_318ff0f069f3f22b",
+                "chat_history": {
+                    "dataset_selection_1": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "params": null,
+                            "return_params": false
+                        }
+                    ],
+                    "filter_1": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "params": null,
+                            "return_params": false
+                        }
+                    ],
+                    "qspr_1": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "params": null,
+                            "return_params": false
+                        }
+                    ],
+                    "qspr_results_1": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "params": null,
+                            "return_params": false
+                        }
+                    ],
+                    "workflow": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "workflow": {
+                                "dataset_selection_1": {
+                                    "module_type": "dataset_selection",
+                                    "display_name": "dataset_selection_1",
+                                    "prevNode": null,
+                                    "nextNode": "filter_1",
+                                    "params": {},
+                                    "source_position": "xxx",
+                                    "target_position": "xxx",
+                                    "position": {
+                                        "x": 200,
+                                        "y": 0
+                                    }
+                                },
+                                "filter_1": {
+                                    "module_type": "filter",
+                                    "display_name": "filter_1",
+                                    "prevNode": "dataset_selection_1",
+                                    "nextNode": "qspr_1",
+                                    "params": {},
+                                    "source_position": "xxx",
+                                    "target_position": "xxx",
+                                    "position": {
+                                        "x": 200,
+                                        "y": 250
+                                    }
+                                },
+                                "qspr_1": {
+                                    "module_type": "qspr",
+                                    "display_name": "qspr_1",
+                                    "prevNode": "filter_1",
+                                    "nextNode": "qspr_results_1",
+                                    "params": {},
+                                    "source_position": "xxx",
+                                    "target_position": "xxx",
+                                    "position": {
+                                        "x": 200,
+                                        "y": 500
+                                    }
+                                },
+                                "qspr_results_1": {
+                                    "module_type": "qspr_results",
+                                    "display_name": "qspr_results_1",
+                                    "prevNode": "qspr_1",
+                                    "nextNode": null,
+                                    "params": {},
+                                    "source_position": "xxx",
+                                    "target_position": "xxx",
+                                    "position": {
+                                        "x": 200,
+                                        "y": 750
+                                    }
+                                }
+                            },
+                            "return_workflow": true
+                        }
+                    ]
+                },
+                "display_workflow_name": "workflow_0_2025-05-29",
+                "fork_count": 0,
+                "key": "workflow",
+                "lastUpdated": 1748521342.416921,
+                "like": false,
+                "module_tag": [
+                    "data",
+                    "modeling"
+                ],
+                "share": false,
+                "user_email": "user_id_8006807164098711",
+                "workflow": {
+                    "dataset_selection_1": {
+                        "module_type": "dataset_selection",
+                        "display_name": "dataset_selection_1",
+                        "prevNode": null,
+                        "nextNode": "filter_1",
+                        "params": {},
+                        "source_position": "xxx",
+                        "target_position": "xxx",
+                        "position": {
+                            "x": 200,
+                            "y": 0
+                        }
+                    },
+                    "filter_1": {
+                        "module_type": "filter",
+                        "display_name": "filter_1",
+                        "prevNode": "dataset_selection_1",
+                        "nextNode": "qspr_1",
+                        "params": {},
+                        "source_position": "xxx",
+                        "target_position": "xxx",
+                        "position": {
+                            "x": 200,
+                            "y": 250
+                        }
+                    },
+                    "qspr_1": {
+                        "module_type": "qspr",
+                        "display_name": "qspr_1",
+                        "prevNode": "filter_1",
+                        "nextNode": "qspr_results_1",
+                        "params": {},
+                        "source_position": "xxx",
+                        "target_position": "xxx",
+                        "position": {
+                            "x": 200,
+                            "y": 500
+                        }
+                    },
+                    "qspr_results_1": {
+                        "module_type": "qspr_results",
+                        "display_name": "qspr_results_1",
+                        "prevNode": "qspr_1",
+                        "nextNode": null,
+                        "params": {},
+                        "source_position": "xxx",
+                        "target_position": "xxx",
+                        "position": {
+                            "x": 200,
+                            "y": 750
+                        }
+                    }
+                }
+            },
+            {
+                "_id": "user_id_8006807164098711_workflow_318ff0f069f3f224",
+                "chat_history": {
+                    "dataset_selection_1": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "params": null,
+                            "return_params": false
+                        }
+                    ],
+                    "filter_1": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "params": null,
+                            "return_params": false
+                        }
+                    ],
+                    "qspr_1": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "params": null,
+                            "return_params": false
+                        }
+                    ],
+                    "qspr_results_1": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "params": null,
+                            "return_params": false
+                        }
+                    ],
+                    "workflow": [
+                        {
+                            "id": "0",
+                            "user": "qspr",
+                            "system": "The QSPR (Quantitative Structure-Property Relationship) workflow involves selecting a dataset, filtering the data based on specific criteria, generating a QSPR model using the data, and obtaining the modeling results which include metric and descriptor importance analysis.",
+                            "workflow": {
+                                "dataset_selection_1": {
+                                    "module_type": "dataset_selection",
+                                    "display_name": "dataset_selection_1",
+                                    "prevNode": null,
+                                    "nextNode": "filter_1",
+                                    "params": {},
+                                    "source_position": "xxx",
+                                    "target_position": "xxx",
+                                    "position": {
+                                        "x": 200,
+                                        "y": 0
+                                    }
+                                },
+                                "filter_1": {
+                                    "module_type": "filter",
+                                    "display_name": "filter_1",
+                                    "prevNode": "dataset_selection_1",
+                                    "nextNode": "qspr_1",
+                                    "params": {},
+                                    "source_position": "xxx",
+                                    "target_position": "xxx",
+                                    "position": {
+                                        "x": 200,
+                                        "y": 250
+                                    }
+                                },
+                                "qspr_1": {
+                                    "module_type": "qspr",
+                                    "display_name": "qspr_1",
+                                    "prevNode": "filter_1",
+                                    "nextNode": "qspr_results_1",
+                                    "params": {},
+                                    "source_position": "xxx",
+                                    "target_position": "xxx",
+                                    "position": {
+                                        "x": 200,
+                                        "y": 500
+                                    }
+                                },
+                                "qspr_results_1": {
+                                    "module_type": "qspr_results",
+                                    "display_name": "qspr_results_1",
+                                    "prevNode": "qspr_1",
+                                    "nextNode": null,
+                                    "params": {},
+                                    "source_position": "xxx",
+                                    "target_position": "xxx",
+                                    "position": {
+                                        "x": 200,
+                                        "y": 750
+                                    }
+                                }
+                            },
+                            "return_workflow": true
+                        }
+                    ]
+                },
+                "display_workflow_name": "workflow_1_2025-05-29",
+                "fork_count": 0,
+                "key": "workflow",
+                "lastUpdated": 1748521442.416921,
+                "like": false,
+                "module_tag": [
+                    "data",
+                    "modeling"
+                ],
+                "share": false,
+                "user_email": "user_id_8006807164098711",
+                "workflow": {
+                    "dataset_selection_1": {
+                        "module_type": "dataset_selection",
+                        "display_name": "dataset_selection_1",
+                        "prevNode": null,
+                        "nextNode": "filter_1",
+                        "params": {},
+                        "source_position": "xxx",
+                        "target_position": "xxx",
+                        "position": {
+                            "x": 200,
+                            "y": 0
+                        }
+                    },
+                    "filter_1": {
+                        "module_type": "filter",
+                        "display_name": "filter_1",
+                        "prevNode": "dataset_selection_1",
+                        "nextNode": "qspr_1",
+                        "params": {},
+                        "source_position": "xxx",
+                        "target_position": "xxx",
+                        "position": {
+                            "x": 200,
+                            "y": 250
+                        }
+                    },
+                    "qspr_1": {
+                        "module_type": "qspr",
+                        "display_name": "qspr_1",
+                        "prevNode": "filter_1",
+                        "nextNode": "qspr_results_1",
+                        "params": {},
+                        "source_position": "xxx",
+                        "target_position": "xxx",
+                        "position": {
+                            "x": 200,
+                            "y": 500
+                        }
+                    },
+                    "qspr_results_1": {
+                        "module_type": "qspr_results",
+                        "display_name": "qspr_results_1",
+                        "prevNode": "qspr_1",
+                        "nextNode": null,
+                        "params": {},
+                        "source_position": "xxx",
+                        "target_position": "xxx",
+                        "position": {
+                            "x": 200,
+                            "y": 750
+                        }
+                    }
+                }
+            }
+        ],
+        "data_size": 1
+    },
+    "headers": {
+        "Content-Type": "application/json"
+    }
+}

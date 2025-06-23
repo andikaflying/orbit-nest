@@ -53,13 +53,13 @@ const ProjectsDashboard: React.FC = () => {
             <div className="flex items-center gap-1">
               <Button
                 variant="ghost"
-                className="bg-white text-kumi-black font-red-hat text-sm font-medium px-10 py-2 h-9 rounded-xl"
+                className="bg-white text-kumi-black font-red-hat text-xs lg:text-sm font-medium px-10 py-2 h-9 rounded-xl"
               >
                 Works
               </Button>
               <Button
                 variant="ghost"
-                className="text-kumi-black font-red-hat text-sm font-medium px-10 py-2 h-9 rounded-xl hover:bg-white"
+                className="text-kumi-black font-red-hat text-xs lg:text-sm font-medium px-10 py-2 h-9 rounded-xl hover:bg-white"
               >
                 Favorite
               </Button>
@@ -68,7 +68,7 @@ const ProjectsDashboard: React.FC = () => {
 
           <Button
             onClick={() => navigate("/workflow")}
-            className="bg-kumi-blue-400 hover:bg-kumi-blue-500 w-auto lg:w-[378px] text-white font-red-hat text-sm font-semibold px-8 py-4 h-12 rounded-2xl flex items-center gap-3"
+            className="bg-kumi-blue-400 hover:bg-kumi-blue-500 w-auto lg:w-[378px] text-white font-red-hat text-xs lg:text-sm font-semibold px-8 py-4 h-12 rounded-2xl flex items-center gap-3"
           >
             Create a new project
             <Plus className="w-4 h-4" />
@@ -108,7 +108,7 @@ const ProjectsDashboard: React.FC = () => {
 
       <div className="pt-6 pb-3">
         <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-          <h2 className="font-konkhmer text-sm lg:text-xl text-kumi-black font-semibold">
+          <h2 className="font-konkhmer text-md lg:text-xl text-kumi-black font-semibold">
             EZSAI (Easy Start AI):
           </h2>
           <p className="font-red-hat text-sm lg:text-xl text-kumi-black">

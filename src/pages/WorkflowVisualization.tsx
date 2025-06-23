@@ -107,7 +107,7 @@ const WorkflowVisualization: React.FC = () => {
             >
               <ChevronLeft className="w-4 h-4 text-kumi-black" />
             </Button>
-            <h2 className="ml-2 flex items-center font-poppins text-sm lg:text-xl font-semibold text-kumi-black">
+            <h2 className="ml-2 flex items-center font-poppins text-md lg:text-xl font-semibold text-kumi-black">
               QSPR Project
             </h2>
           </div>
@@ -159,10 +159,10 @@ const WorkflowVisualization: React.FC = () => {
       <div className={cn("flex-1 m-3", hideMain ? "hidden" : "flex")}>
         <div className="bg-white rounded-3xl p-6 h-full">
           <div className="flex items-center gap-3 mb-6">
-            <h2 className="font-red-hat text-xl font-bold text-kumi-black">
+            <h2 className="font-red-hat text-md lg:text-xl font-bold text-kumi-black">
               Module:
             </h2>
-            <h2 className="font-red-hat text-xl font-bold text-kumi-black">
+            <h2 className="font-red-hat text-md lg:text-xl font-bold text-kumi-black">
               Target selection
             </h2>
           </div>
@@ -172,11 +172,11 @@ const WorkflowVisualization: React.FC = () => {
             <div>
               <div className="bg-kumi-gray-100 rounded-3xl p-2 mb-6">
                 <div className="flex items-center justify-between">
-                  <span className="ml-3 font-red-hat text-base font-semibold text-kumi-black">
+                  <span className="ml-3 font-red-hat text-sm lg:text-xl font-semibold text-kumi-black">
                     Select a Target Protein:
                   </span>
                   <div className="bg-white rounded-[20px] px-4 py-4 flex items-center justify-between w-[432px]">
-                    <span className="font-red-hat text-base text-kumi-black">
+                    <span className="font-red-hat text-sm lg:text-xl text-kumi-black">
                       {proteinData?.proteinName}
                     </span>
                     <ChevronDown className="w-4 h-4 text-kumi-black" />
@@ -184,31 +184,31 @@ const WorkflowVisualization: React.FC = () => {
                 </div>
               </div>
               <div className="bg-kumi-gray-100 rounded-3xl p-2">
-                <h3 className="font-red-hat text-xl font-bold text-kumi-black mb-4 ml-2 mt-3">
+                <h3 className="font-red-hat text-md lg:text-xl font-bold text-kumi-black my-2 lg:mb-4 ml-2 lg:mt-3">
                   Target Protein Information
                 </h3>
                 <div className="bg-white rounded-[20px] p-4 space-y-3">
                   <div>
-                    <span className="font-red-hat text-base font-bold text-kumi-black">
+                    <span className="font-red-hat text-sm lg:text-base font-bold text-kumi-black">
                       PDB ID:{" "}
                     </span>
-                    <span className="font-red-hat text-base text-kumi-black">
+                    <span className="font-red-hat text-sm lg:text-base text-kumi-black">
                       {proteinData?.PDBID}
                     </span>
                   </div>
                   <hr className="border-dashed border-kumi-gray-200" />
                   <div>
-                    <span className="font-red-hat text-base font-bold text-kumi-black">
+                    <span className="font-red-hat text-sm lg:text-base font-bold text-kumi-black">
                       UniProtKB ID:{" "}
                     </span>
-                    <span className="font-red-hat text-base text-kumi-black">
+                    <span className="font-red-hat text-sm lg:text-base text-kumi-black">
                       {proteinData?.UniProtKBID}
                     </span>
                   </div>
                   <hr className="border-dashed border-kumi-gray-200" />
                   <div>
                     <span className="font-red-hat text-base font-bold text-kumi-black">
-                      Function:
+                      Function:{" "}
                     </span>
                     <span className="font-red-hat text-base text-kumi-black">
                       {proteinData?.function}
@@ -218,7 +218,7 @@ const WorkflowVisualization: React.FC = () => {
               </div>
               {/* Protein Structure Visualization */}
               <div className="mt-6 bg-kumi-gray-100 rounded-3xl rounded-3xl p-4">
-                <h3 className="font-red-hat text-xl font-bold text-kumi-black mb-4 ml-2 mt-3">
+                <h3 className="font-red-hat text-md lg:text-xl font-bold text-kumi-black my-2 lg:mb-4 lg:mt-3">
                   Beta-2 Adrenergic Receptor (P07550)
                 </h3>
                 <div
@@ -237,12 +237,12 @@ const WorkflowVisualization: React.FC = () => {
             {/* Druggability and Known Modulators */}
             <div className="space-y-6">
               {/* Druggability */}
-              <div className="bg-kumi-gray-100 rounded-3xl p-5 w-full">
+              <div className="bg-kumi-gray-100 rounded-3xl p-2 lg:p-5 w-full">
                 <div className="flex items-center justify-between mb-4 flex-col 2xl:flex-row">
-                  <h3 className="font-red-hat text-md 2xl:text-lg font-bold text-kumi-black">
+                  <h3 className="font-red-hat text-md 2xl:text-lg font-bold text-kumi-black mb-1 2xl:mb-0">
                     Druggability
                   </h3>
-                  <div className="bg-kumi-orange text-white px-8 py-2 rounded-full">
+                  <div className="bg-kumi-orange text-white px-4 lg:px-8 py-1 lg:py-2 rounded-full">
                     <span className="font-red-hat text-md 2xl:text-lg">
                       score: {proteinData?.druggabilityScore}
                     </span>
@@ -258,7 +258,7 @@ const WorkflowVisualization: React.FC = () => {
                       <>
                         <p
                           key={`key-factor-${index}`}
-                          className="font-red-hat text-base text-kumi-black"
+                          className="font-red-hat text-sm lg:text-base text-kumi-black"
                         >
                           {factor}
                         </p>
@@ -272,27 +272,25 @@ const WorkflowVisualization: React.FC = () => {
               </div>
 
               {/* Known Modulators */}
-              <div className="bg-kumi-gray-100 rounded-3xl p-5">
-                <h3 className="font-red-hat text-xl font-bold text-kumi-black mb-4">
-                  Known Modulators
-                </h3>
-                <div className="bg-white rounded-[20px] overflow-hidden">
-                  {/* Table Header */}
-                  <div className="grid grid-cols-4 bg-kumi-gray-50 rounded-t-[20px]">
-                    <div className="p-4 font-red-hat text-base font-medium text-kumi-black">
-                      Compound
-                    </div>
-                    <div className="p-4 font-red-hat text-base font-medium text-kumi-black">
-                      Type
-                    </div>
-                    <div className="p-4 font-red-hat text-base font-medium text-kumi-black">
-                      Potency
-                    </div>
-                    <div className="p-4 font-red-hat text-base font-medium text-kumi-black">
-                      Clinical Stage
-                    </div>
+              <div className="bg-white rounded-[20px] overflow-hidden">
+                {/* Table Header - Hidden on mobile */}
+                <div className="hidden md:grid grid-cols-4 bg-kumi-gray-50 rounded-t-[20px]">
+                  <div className="p-4 font-red-hat text-base font-medium text-kumi-black">
+                    Compound
                   </div>
-                  {/* Table Rows */}
+                  <div className="p-4 font-red-hat text-base font-medium text-kumi-black">
+                    Type
+                  </div>
+                  <div className="p-4 font-red-hat text-base font-medium text-kumi-black">
+                    Potency
+                  </div>
+                  <div className="p-4 font-red-hat text-base font-medium text-kumi-black">
+                    Clinical Stage
+                  </div>
+                </div>
+
+                {/* Table Rows - Desktop */}
+                <div className="hidden md:block">
                   {proteinData?.modulator?.map((row, index) => (
                     <div
                       key={index}
@@ -309,6 +307,49 @@ const WorkflowVisualization: React.FC = () => {
                       </div>
                       <div className="p-4 font-red-hat text-base text-kumi-black">
                         {row.clinicalStage}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Card Layout - Mobile */}
+                <div className="md:hidden space-y-3 p-3">
+                  {proteinData?.modulator?.map((row, index) => (
+                    <div
+                      key={index}
+                      className="bg-gray-50 rounded-lg p-3 space-y-2"
+                    >
+                      <div className="flex justify-between">
+                        <span className="font-red-hat text-sm font-bold text-kumi-black">
+                          Compound:
+                        </span>
+                        <span className="font-red-hat text-sm text-kumi-black">
+                          {row.compound}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-red-hat text-sm font-bold text-kumi-black">
+                          Type:
+                        </span>
+                        <span className="font-red-hat text-sm text-kumi-black">
+                          {row.type}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-red-hat text-sm font-bold text-kumi-black">
+                          Potency:
+                        </span>
+                        <span className="font-red-hat text-sm text-kumi-black">
+                          {row.potency}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-red-hat text-sm font-bold text-kumi-black">
+                          Clinical Stage:
+                        </span>
+                        <span className="font-red-hat text-sm text-kumi-black">
+                          {row.clinicalStage}
+                        </span>
                       </div>
                     </div>
                   ))}

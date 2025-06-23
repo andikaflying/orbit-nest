@@ -76,9 +76,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             ))}
           </div>
 
-          <h3 className="font-konkhmer text-base text-kumi-black">{title}</h3>
+          <h3 className="font-konkhmer text-xs lg:text-base text-kumi-black">
+            {title}
+          </h3>
 
-          <p className="font-red-hat text-sm text-kumi-gray-400">
+          <p className="font-red-hat text-xs lg:text-sm text-kumi-gray-400">
             {lastEdited}
           </p>
         </div>

@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="w-full bg-white px-6 py-3 flex justify-between items-center gap-4 border-b border-kumi-gray-100">
+    <header className="relative w-full bg-white px-6 py-3 flex justify-between items-center gap-4 border-b border-kumi-gray-100">
       <div className="flex items-center flex-shrink-0">
         <div className="flex flex-row">
           <h1 className="font-konkhmer text-[34px] leading-none text-kumi-black font-semibold">

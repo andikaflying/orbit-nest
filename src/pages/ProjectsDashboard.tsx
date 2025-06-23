@@ -46,7 +46,7 @@ const ProjectsDashboard: React.FC = () => {
   }, []);
 
   return (
-    <div className="max-w-[1424px] w-full h-screen bg-white rounded-3xl m-3 p-3">
+    <div className="max-w-[1424px] min-h-[600px] w-full h-full bg-white rounded-3xl m-3 p-3">
       <div className="flex justify-between items-center">
         <div className="flex flex-col md:flex-row md:items-center gap-2">
           <div className="bg-kumi-gray-100 rounded-2xl p-1.5">

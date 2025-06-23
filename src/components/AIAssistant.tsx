@@ -23,7 +23,7 @@ const AIAssistant: React.FC = () => {
   return (
     <div
       className={`
-          relative hidden sm:flex top-0 right-0 m-3 rounded-3xl bg-white border-l border-kumi-gray-100 transition-all duration-300 z-40
+           relative hidden sm:flex top-0 right-0 m-3 rounded-3xl bg-white border-l border-kumi-gray-100 transition-all duration-300 z-40
           ${isExpanded ? "w-full max-w-[460px]" : "w-[72px] overflow-hidden"}
         `}
     >

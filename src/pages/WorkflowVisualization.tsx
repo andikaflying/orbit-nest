@@ -90,14 +90,12 @@ const WorkflowVisualization: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F1F1F5] flex flex-col xl:flex-row sm:mr-3 w-full">
+    <div className="bg-[#F1F1F5] flex flex-col xl:flex-row mr-3 lg:mr-0 w-full">
       {/* Left Sidebar - Workflow Map */}
       <div
         className={cn(
           "bg-white rounded-2xl m-3 sm:rounded-3xl p-3 sm:p-4 lg:p-6 flex items-center flex-col",
-          hideMain
-            ? "xl:w-[1200px] 2xl:w-[1300px]"
-            : "xl:w-[400px] 2xl:w-[460px]",
+          hideMain ? "w-full 2xl:w-[80vw]" : "xl:w-[400px] 2xl:w-[460px]",
         )}
       >
         <div className="flex items-center justify-between mb-2 w-full">
@@ -140,7 +138,9 @@ const WorkflowVisualization: React.FC = () => {
         <div
           className={cn(
             "bg-kumi-gray-100 rounded-3xl h-[80vh]",
-            hideMain ? "w-[50vw]" : "w-[320px] lg:w-[360px]",
+            hideMain
+              ? "w-[80vw] md:w-[460px] xl:w-[720px] 2xl:w-[70vw]"
+              : "w-[320px] lg:w-[360px]",
           )}
         >
           <ReactFlow

@@ -24,7 +24,7 @@ function AppContent() {
 
   // Normal layout for other pages
   return (
-    <div className="h-screen bg-[#F1F1F5]">
+    <div className="h-full bg-[#F1F1F5]">
       <Header />
       <main className="relative h-full bg-[#F1F1F5] justify-center flex w-full flex-row">
         <Routes>

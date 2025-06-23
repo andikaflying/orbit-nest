@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Search,
   HelpCircle,
@@ -13,6 +13,7 @@ import { Input } from "./ui/input";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -109,11 +110,76 @@ const Header: React.FC = () => {
       </div>
       <div className="2xl:hidden flex items-center gap-2 flex-shrink-0">
         <div className="bg-kumi-gray-100 rounded-[20px] p-2">
-          <div className="bg-white rounded-xl p-3">
+          <div
+            className="bg-white rounded-xl p-3 cursor-pointer"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             <Menu className="w-6 h-6 text-kumi-gray-300" />
           </div>
         </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="absolute top-full right-0 bg-white shadow-lg border border-kumi-gray-100 p-4 w-full z-50 h-[260px]">
+          <nav className="flex flex-col gap-2">
+            <Button
+              variant="ghost"
+              onClick={() => {
+                navigate("/");
+                setIsMobileMenuOpen(false);
+              }}
+              className={`
+                  ${
+                    isActive("/") || isActive("/projects")
+                      ? "bg-kumi-gray-100 text-kumi-black"
+                      : "text-kumi-black hover:bg-kumi-gray-100"
+                  }
+                  font-red-hat text-sm font-medium px-4 py-2 rounded-lg
+                `}
+            >
+              Home
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-kumi-black font-red-hat text-sm font-medium px-4 py-2 rounded-lg hover:bg-kumi-gray-100"
+            >
+              Templates
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                navigate("/workflow");
+                setIsMobileMenuOpen(false);
+              }}
+              className={`
+                  ${
+                    isActive("/workflow")
+                      ? "bg-kumi-gray-100 text-kumi-black"
+                      : "text-kumi-black hover:bg-kumi-gray-100"
+                  }
+                  font-red-hat text-sm font-medium px-4 py-2 rounded-lg
+                `}
+            >
+              Workflow community
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-kumi-black font-red-hat text-sm font-medium px-4 py-2 rounded-lg hover:bg-kumi-gray-100"
+            >
+              About us
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-kumi-black font-red-hat text-sm font-medium px-4 py-2 rounded-lg hover:bg-kumi-gray-100"
+            >
+              Profile
+            </Button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

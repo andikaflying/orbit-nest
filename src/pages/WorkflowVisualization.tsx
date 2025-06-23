@@ -172,11 +172,11 @@ const WorkflowVisualization: React.FC = () => {
             <div>
               <div className="bg-kumi-gray-100 rounded-3xl p-2 mb-6">
                 <div className="flex items-center justify-between">
-                  <span className="ml-3 font-red-hat text-sm lg:text-xl font-semibold text-kumi-black">
+                  <span className="ml-3 font-red-hat text-sm lg:text-base font-semibold text-kumi-black">
                     Select a Target Protein:
                   </span>
                   <div className="bg-white rounded-[20px] px-4 py-4 flex items-center justify-between w-[432px]">
-                    <span className="font-red-hat text-sm lg:text-xl text-kumi-black">
+                    <span className="font-red-hat text-sm lg:text-base text-kumi-black">
                       {proteinData?.proteinName}
                     </span>
                     <ChevronDown className="w-4 h-4 text-kumi-black" />
